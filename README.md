@@ -5,16 +5,16 @@
 | nickname             | string   | null: false |
 | encrypted_password   | string   | null: false |
 | email                | string   | null: false |
-| First_name           | string   | null: false |
-| First_name_kana      | string   | null: false |
+| first_name           | string   | null: false |
+| first_name_kana      | string   | null: false |
 | last_name            | string   | null: false |
 | last_name_kana       | string   | null: false |
-| Birthday             | datetime | null: false |
+| birthday             | datetime | null: false |
 
 
 ### Association
 has_many :items
-has_many :purchase
+has_many :purchases
 
 
 ## items テーブル
@@ -22,10 +22,10 @@ has_many :purchase
 | Column           | Type         | Options                         |
 | ------------     | ------       | -----------------------------   |
 | items_name       | string       | null: false                     |
-| Explanation      | text         | null: false                     |
+| explanation      | text         | null: false                     |
 | category_id      | integer      | null: false                     |
 | items_status_id  | integer      | null: false                     |
-| Delivery_fee_id  | integer      | null: false                     |
+| delivery_fee_id  | integer      | null: false                     |
 | area_id          | integer      | null: false                     |
 | shipment_id      | integer      | null: false                     |
 | price            | integer      | null: false                     |
@@ -37,7 +37,7 @@ has_many :purchase
 ### Association
 
 belongs_to :user
-has_one:purchase Table
+has_one:purchase 
 
 
 
@@ -46,11 +46,11 @@ has_one:purchase Table
 
 | Column       | Type       | Options     |
 | ----------   | ------     | ----------- |
-| Postal_code  | string     | null: false |
-| Prefectures  | string     | null: false |
-| Municipality | string     | null: false |
+| postal_code  | string     | null: false |
+| prefectures  | string     | null: false |
+| municipality | string     | null: false |
 | house number | string     | null: false |
-| Building     | text       |             |
+| building     | text       |             |
 | number       | integer    | null: false |
 | purchase     | references | null: false,foreign_key: true   |
 
