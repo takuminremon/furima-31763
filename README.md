@@ -30,7 +30,7 @@ has_many :purchases
 | shipment_id      | integer      | null: false                     |
 | price            | integer      | null: false                     |
 | user             | references   | null: false,foreign_key: true   |
-| address          | references   | null: false,foreign_key: true   |
+
 
 
 
@@ -44,14 +44,14 @@ has_one:purchase
 
 ## address テーブル
 
-| Column       | Type       | Options     |
-| ----------   | ------     | ----------- |
-| postal_code  | string     | null: false |
-| prefectures  | string     | null: false |
-| municipality | string     | null: false |
-| house number | string     | null: false |
-| building     | text       |             |
-| number       | integer    | null: false |
+| Column       | Type       | Options                         |
+| ----------   | ------     | -----------                     |
+| postal_code  | string     | null: false                     |
+| prefectures  | string     | null: false                     |
+| municipality | string     | null: false                     |
+| house number | string     | null: false                     |
+| building     | text       |                                 |
+| number       | integer    | null: false                     |
 | purchase     | references | null: false,foreign_key: true   |
 
 
