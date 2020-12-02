@@ -1,15 +1,15 @@
 ## users テーブル
 
-| Column               | Type     | Options     |
-| ----------           | ------   | ----------- |
-| nickname             | string   | null: false |
-| encrypted_password   | string   | null: false |
-| email                | string   | null: false |
-| first_name           | string   | null: false |
-| first_name_kana      | string   | null: false |
-| last_name            | string   | null: false |
-| last_name_kana       | string   | null: false |
-| birthday             | date     | null: false |
+| Column               | Type     | Options                  |
+| ----------           | ------   | -----------              |
+| nickname             | string   | null: false              |
+| encrypted_password   | string   | null: false              |
+| email                | string   | null: false,unique: true |
+| first_name           | string   | null: false              |
+| first_name_kana      | string   | null: false              |
+| last_name            | string   | null: false              |
+| last_name_kana       | string   | null: false              |
+| birthday             | date     | null: false              |
 
 
 ### Association
@@ -21,7 +21,7 @@ has_many :purchases
 
 | Column           | Type         | Options                         |
 | ------------     | ------       | -----------------------------   |
-| items_name       | string       | null: false                     |
+| name             | string       | null: false                     |
 | explanation      | text         | null: false                     |
 | category_id      | integer      | null: false                     |
 | items_status_id  | integer      | null: false                     |
@@ -37,7 +37,7 @@ has_many :purchases
 ### Association
 
 belongs_to :user
-has_one:purchase 
+has_one :purchase 
 
 
 
@@ -51,7 +51,7 @@ has_one:purchase
 | municipality   | string     | null: false                     |
 | house_number   | string     | null: false                     |
 | building       | string     |                                 |
-| number         | integer    | null: false                     |
+| phone_number   | string     | null: false                     |
 | purchase       | references | null: false,foreign_key: true   |
 
 
@@ -73,9 +73,9 @@ belongs_to :purchase
 ### Association
 
 
-belongs_to:item 
+belongs_to :item 
 belongs_to :user
-has_one:address
+has_one :address
 
 
 
