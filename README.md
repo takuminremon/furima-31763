@@ -1,13 +1,15 @@
 ## users テーブル
 
-| Column     | Type     | Options     |
-| ---------- | ------   | ----------- |
-| nickname   | string   | null: false |
-| password   | string   | null: false |
-| email      | string   | null: false |
-| full_name  | string   | null: false |
-| name_	kana | string   | null: false |
-| Birthday   | datetime | null: false |
+| Column               | Type     | Options     |
+| ----------           | ------   | ----------- |
+| nickname             | string   | null: false |
+| encrypted_password   | string   | null: false |
+| email                | string   | null: false |
+| First_name           | string   | null: false |
+| First_name_kana      | string   | null: false |
+| last_name            | string   | null: false |
+| last_name_kana       | string   | null: false |
+| Birthday             | datetime | null: false |
 
 
 ### Association
@@ -17,26 +19,24 @@ has_many :purchase
 
 ## items テーブル
 
-| Column        | Type         | Options                         |
-| ------------  | ------       | -----------------------------   |
-| items_picture | string       | null: false                     |
-| items_name    | string       | null: false                     |
-| Explanation   | text         | null: false                     |
-| category      | boolean      | null: false                     |
-| items_status  | boolean      | null: false                     |
-| Delivery_fee  | integer      | null: false                     |
-| area          | string       | null: false                     |
-| shipment      | datetime     | null: false                     |
-| price         | integer      | null: false                     |
-| user          | references   | null: false,foreign_key: true   |
-| address       | references   | null: false,foreign_key: true   |
+| Column           | Type         | Options                         |
+| ------------     | ------       | -----------------------------   |
+| items_name       | string       | null: false                     |
+| Explanation      | text         | null: false                     |
+| category_id      | integer      | null: false                     |
+| items_status_id  | integer      | null: false                     |
+| Delivery_fee_id  | integer      | null: false                     |
+| area_id          | integer      | null: false                     |
+| shipment_id      | integer      | null: false                     |
+| price            | integer      | null: false                     |
+| user             | references   | null: false,foreign_key: true   |
+| address          | references   | null: false,foreign_key: true   |
 
 
 
 ### Association
 
-belongs_to :users
-belongs_to ：address
+belongs_to :user
 has_one:purchase Table
 
 
@@ -52,11 +52,11 @@ has_one:purchase Table
 | house number | string     | null: false |
 | Building     | text       |             |
 | number       | integer    | null: false |
-| items        | references | null: false,foreign_key: true   |
+| purchase     | references | null: false,foreign_key: true   |
 
-### Association
 
-has_many :items
+belongs_to :purchase
+
 
 
 ## purchase テーブル
@@ -66,7 +66,7 @@ has_many :items
 | Column     | Type       | Options                         |
 | ---------- | ------     | -----------                     |
 | user       | references | null: false,foreign_key: true   |
-|            |            |                                 |
+| item       | references | null: false,foreign_key: true   |
 |            |            |                                 |
 |            |            |                                 |
 |            |            |                                 |
@@ -76,9 +76,9 @@ has_many :items
 ### Association
 
 
-belongs_to:items Table
-belongs_to :users
-
+belongs_to:item Table
+belongs_to :user
+has_one:address
 
 
 
