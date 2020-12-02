@@ -9,7 +9,7 @@
 | first_name_kana      | string   | null: false |
 | last_name            | string   | null: false |
 | last_name_kana       | string   | null: false |
-| birthday             | datetime | null: false |
+| birthday             | date     | null: false |
 
 
 ### Association
@@ -47,10 +47,10 @@ has_one:purchase
 | Column       | Type       | Options                         |
 | ----------   | ------     | -----------                     |
 | postal_code  | string     | null: false                     |
-| prefectures  | string     | null: false                     |
+| prefecture   | integer    | null: false                     |
 | municipality | string     | null: false                     |
-| house number | string     | null: false                     |
-| building     | text       |                                 |
+| house_number | string     | null: false                     |
+| building     | string     |                                 |
 | number       | integer    | null: false                     |
 | purchase     | references | null: false,foreign_key: true   |
 
@@ -73,7 +73,7 @@ belongs_to :purchase
 ### Association
 
 
-belongs_to:item Table
+belongs_to:item 
 belongs_to :user
 has_one:address
 
