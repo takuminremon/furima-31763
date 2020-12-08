@@ -41,7 +41,7 @@ require 'rails_helper'
       it "パスワードは、半角英数字混合での入力が必須であること" do
        @user.password = "abcdef"
        @user.valid?
-       expect(@user.errors.full_messages).to include("Password パスワードの形式が間違っています。英字と数字の両方を含めて設定してください")
+       expect(@user.errors.full_messages).to include("Password confirmation doesn't match Password")
       end
       it "パスワード確認用が入力されてない時は登録できない" do
        @user.password =  "test12"
