@@ -4,16 +4,21 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+   PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i.freeze
+   validates_format_of :password, with: PASSWORD_REGEX, message: 'パスワードの形式が間違っています。英字と数字の両方を含めて設定してください'
+
 
    validates :nickname, presence: true 
-   validates :first_name, presence: true,format:       { with: /\A[ぁ-んァ-ン一-龥]/}
-   validates :first_name_kana, presence: true,format:  { with: /\A[ァ-ヶー－]+\z/}
-   validates :last_name, presence: true,format:        { with: /\A[ぁ-んァ-ン一-龥]/}
-   validates :last_name_kana, presence: true,format:   { with: /\A[ァ-ヶー－]+\z/}
+   with_options presence: true, format:{ with: /\A[ぁ-んァ-ン一-龥]/}do
+   validates :first_name   
+   validates :last_name  
+   end
+   with_options presence: true, format:{ with: /\A[ァ-ヶー－]+\z/}do
+   validates :first_name_kana
+   validates :last_name_kana
+   end
    validates :birthday, presence: true 
    
-
-
-
-
+   has_many :items
+   has_many :purchases
 end
