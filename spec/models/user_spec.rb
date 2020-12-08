@@ -43,7 +43,7 @@ require 'rails_helper'
        @user.valid?
        expect(@user.errors.full_messages).to include("Password is invalid")
       end
-      it "パスワードは、半角英数字混合での入力が必須であること" do
+      it "パスワードは、全角英数字混合での入力は登録できなこと" do
         @user.password = "アイウエオ"
         @user.valid?
         expect(@user.errors.full_messages).to include("Password is invalid")
