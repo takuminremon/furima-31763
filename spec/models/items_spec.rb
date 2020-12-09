@@ -54,27 +54,27 @@ require 'rails_helper'
          expect(@item.errors.full_messages).to include("Explanation is too long (maximum is 1000 characters)")
        end
        it 'category_idが１では登録できない' do
-         @item.category_id = '1'
+         @item.category_id = 1
          @item.valid?
          expect(@item.errors.full_messages).to include("Category must be other than 1")
        end
        it 'items_status_idが１では登録できない' do
-         @item.items_status_id = '1'
+         @item.items_status_id = 1
          @item.valid?
          expect(@item.errors.full_messages).to include("Items status must be other than 1")
        end
        it 'delivery_fee_idが１では登録できない' do
-         @item.delivery_fee_id = '1'
+         @item.delivery_fee_id = 1
          @item.valid?
          expect(@item.errors.full_messages).to include("Delivery fee must be other than 1")
        end
        it 'prefecture_idが１では登録できない' do
-         @item.prefecture_id = '1'
+         @item.prefecture_id = 1
          @item.valid?
          expect(@item.errors.full_messages).to include("Prefecture must be other than 1")
        end
        it 'area_idが１では登録できない' do
-         @item.area_id = '1'
+         @item.area_id = 1
          @item.valid?
          expect(@item.errors.full_messages).to include("Area must be other than 1")
        end
