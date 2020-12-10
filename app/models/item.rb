@@ -36,7 +36,7 @@ class Item < ApplicationRecord
                 less_than_or_equal_to: 9_999_999,
                 message: '¥300〜9,999,999の範囲で入力してください'
                  }
- end
+end
 
 
 
