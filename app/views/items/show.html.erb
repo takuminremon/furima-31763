@@ -31,9 +31,11 @@
           <p class='or-text'>or</p>
           <%= link_to '削除', item_path(@item), method: :delete, class:'item-destroy' %>
         <% else %>
+         <% if @item.purchase == nil %>
           <%= link_to '購入画面に進む', item_purchase_index_path(@item) ,class:"item-red-btn"%>
+         <% end %>
         <% end %>
-     <% end %>
+      <% end %>
 
     <div class="item-explain-box">
       <span><%= @item.explanation %></span>
