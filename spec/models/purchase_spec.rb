@@ -33,7 +33,7 @@ RSpec.describe PurchaseForm, type: :model do
         expect(@item_purchase.errors.full_messages).to include('Postal code is invalid')
       end
       it 'prefectureを選択していないと保存できないこと' do
-        @item_purchase.prefecture_id = '1'
+        @item_purchase.prefecture_id = 1
         @item_purchase.valid?
         expect(@item_purchase.errors.full_messages).to include("Prefecture can't be blank")
       end

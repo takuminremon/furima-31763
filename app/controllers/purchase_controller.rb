@@ -1,9 +1,11 @@
 class PurchaseController < ApplicationController
+  
+   before_action :set_item
    before_action :authenticate_user!
    before_action :current_user_dealer
    before_action :soldout_item
-   before_action :set_item
-
+  
+   
   def index
     @purchase_form = PurchaseForm.new
   end
