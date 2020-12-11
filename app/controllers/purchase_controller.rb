@@ -5,12 +5,10 @@ class PurchaseController < ApplicationController
    before_action :set_item
 
   def index
-    @item = Item.find(params[:item_id])
     @purchase_form = PurchaseForm.new
   end
 
   def create
-    @item = Item.find(params[:item_id])
     @purchase_form = PurchaseForm.new(purchase_params)   
     if @purchase_form.valid?
       pay_item
@@ -41,7 +39,6 @@ class PurchaseController < ApplicationController
   end
 
   def pay_item
-    @item = Item.find(params[:item_id])
     Payjp.api_key = ENV['PAYJP_SECRET_KEY']
     Payjp::Charge.create(
       amount: @item.price,
