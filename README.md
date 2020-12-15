@@ -86,4 +86,3 @@ has_one :address
 
 
 
-
